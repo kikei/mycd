@@ -44,7 +44,7 @@ setup_tags() {
     IFS_orig=$IFS
     IFS=$'\n'
     cuetag.sh "$cue" $(
-	for f in $(find . -type f -name "*.flac"); do
+	for f in $(find . -type f -name "*.flac" | sort); do
 	    echo $f | sed -e 's/ /\ /g' 
 	done)
     if [ $? != 0 ]; then
